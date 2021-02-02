@@ -62,7 +62,7 @@ def _load_signal_element(signal, nodes):
     notes = None
     receivers = []
     decimal = SignalDecimal(Decimal(slope), Decimal(intercept))
-    
+
     # Signal XML attributes.
     for key, value in signal.attrib.items():
         if key == 'name':
@@ -447,10 +447,7 @@ def dump_string(database):
 
     _indent_xml(network_definition, '  ')
 
-    if sys.version_info[0] > 2:
-        return ElementTree.tostring(network_definition, encoding='unicode')
-    else:
-        return ElementTree.tostring(network_definition)
+    return ElementTree.tostring(network_definition, encoding='unicode')
 
 
 def load_string(string, strict=True):
