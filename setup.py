@@ -4,6 +4,9 @@ from setuptools import setup
 from setuptools import find_packages
 import re
 
+with open('requirements.txt') as f:
+    requirements = f.readlines()
+
 
 def find_version():
     return re.search(r"^__version__ = '(.*)'$",
@@ -26,13 +29,8 @@ setup(name='cantools',
       keywords=['can', 'can bus', 'dbc', 'kcd', 'automotive'],
       url='https://github.com/eerimoq/cantools',
       packages=find_packages(exclude=['tests']),
-      install_requires=[
-          'bitstruct>=6.0.0',
-          'python-can>=2.2.0',
-          'textparser>=0.21.1',
-          'diskcache',
-      ],
+      install_requires=requirements,
       test_suite="tests",
-      entry_points = {
+      entry_points={
           'console_scripts': ['cantools=cantools.__init__:_main']
       })
