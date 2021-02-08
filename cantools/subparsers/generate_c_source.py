@@ -45,9 +45,6 @@ def add_subparser(subparsers):
         action='store_true',
         help='Use bit fields to minimize struct sizes.')
     generate_c_source_parser.add_argument(
-        '--infile',
-        help='Input database file.')
-    generate_c_source_parser.add_argument(
         '--outdir',
         default='.',
         help='Output directory (default: current working directory).')
